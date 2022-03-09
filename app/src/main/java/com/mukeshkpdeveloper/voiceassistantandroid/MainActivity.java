@@ -16,6 +16,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     /// Add AlanButton variable
     private AlanButton alanButton;
+    private static final String ALAN_BUTTON = "AlanButton";
     /// Define the project key
     //other key: f5e57554206244ac1dc9a0d5cd74e85d2e956eca572e1d8b807a3e2338fdd0dc/stage
     //my key: 3c87cba1d78a39dd229a83170bd8edc12e956eca572e1d8b807a3e2338fdd0dc/stage
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     String commandName = data.getString("command");
                     executeCommand(commandName, data);
                 } catch (JSONException e) {
-                    Log.e("AlanButton", e.getMessage());
+                    Log.e(ALAN_BUTTON, e.getMessage());
                 }
             }
         };
@@ -65,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (commandName.equals("open_todo")) {
-            Toast.makeText(this, "log_out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "open_todo", Toast.LENGTH_SHORT).show();
         }
 
         if (commandName.equals("add_task")) {
-            Toast.makeText(this, "log_out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "add_task", Toast.LENGTH_SHORT).show();
         }
 
         if (commandName.equals("set_title")) {
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, " "+title, Toast.LENGTH_SHORT).show();
 
             } catch (JSONException e) {
-                Log.e("AlanButton", e.getMessage());
+                Log.e(ALAN_BUTTON, e.getMessage());
                 alanButton.playText("I'm sorry I'm unable to do this at the moment");
             }
         }
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 String desc = data.getString("description");
                 Toast.makeText(this, " "+desc, Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
-                Log.e("AlanButton", e.getMessage());
+                Log.e(ALAN_BUTTON, e.getMessage());
                 alanButton.playText("I'm sorry I'm unable to do this at the moment");
             }
         }
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 String type = data.getString("type");
                 Toast.makeText(this, " "+type, Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
-                Log.e("AlanButton", e.getMessage());
+                Log.e(ALAN_BUTTON, e.getMessage());
                 alanButton.playText("I'm sorry I'm unable to do this at the moment");
             }
         }
@@ -108,19 +109,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (commandName.equals("confirm_add_task")) {
-            Toast.makeText(this, "refresh_tasks", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "confirm_add_task", Toast.LENGTH_SHORT).show();
         }
 
         if (commandName.equals("read_tasks")) {
-            Toast.makeText(this, "refresh_tasks", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "read_tasks", Toast.LENGTH_SHORT).show();
         }
 
         if (commandName.equals("highlight_task")) {
             try {
                 int position = data.getInt("taskNo");
-                Toast.makeText(this, "refresh_tasks", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
-                Log.e("AlanButton", e.getMessage());
+                Log.e(ALAN_BUTTON, e.getMessage());
                alanButton.playText("I'm sorry I'm unable to do this at the moment");
             }
         }
@@ -128,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
         if (commandName.equals("check_task")) {
             try {
                 int position = data.getInt("taskNo");
-                Toast.makeText(this, "refresh_tasks", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, ""+position, Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
-                Log.e("AlanButton", e.getMessage());
+                Log.e(ALAN_BUTTON, e.getMessage());
                 alanButton.playText("I'm sorry I'm unable to do this at the moment");
             }
         }
